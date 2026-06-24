@@ -3,11 +3,7 @@ import mongoose from 'mongoose'
 import { connectDB } from './config/db.js'
 import app from './app.js'
 
-
-const PORT = process.env.PORT || 10000; // Render uses port 10000 by default if not specified
-server.listen(PORT, () => {
-    console.log(`Server running on port ${PORT}`);
-});
+const PORT = process.env.PORT || 10000; 
 
 // ── Validate required env vars ────────────────────────────────
 const REQUIRED = ['MONGO_URI', 'JWT_SECRET']
@@ -22,6 +18,7 @@ let server
 
 async function start() {
   await connectDB()
+  // app.listen automatically creates and returns the HTTP server instance
   server = app.listen(PORT, () => {
     console.info(`🚀 Server running on port ${PORT} [${process.env.NODE_ENV || 'development'}]`)
   })
