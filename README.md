@@ -34,7 +34,7 @@
 
 <br/>
 
-**[🌐 Live Demo](https://vinayak-portfolio.onrender.com/)** &nbsp;·&nbsp; **[📖 Docs](#-getting-started)** &nbsp;·&nbsp; **[🐛 Report Bug](https://github.com/vinushinde2525-sys/portfolio/issues)** &nbsp;·&nbsp; **[✨ Request Feature](https://github.com/vinushinde2525-sys/portfolio/issues)**
+**[🌐 Live Demo](https://vinayak-portfolio-application.onrender.com/)** &nbsp;·&nbsp; **[📖 Docs](#-getting-started)** &nbsp;·&nbsp; **[🐛 Report Bug](https://github.com/vinushinde2525-sys/portfolio/issues)** &nbsp;·&nbsp; **[✨ Request Feature](https://github.com/vinushinde2525-sys/portfolio/issues)**
 
 </div>
 
@@ -412,8 +412,8 @@ Credentials printed by `npm run seed`.
 
 | Environment | URL |
 |-------------|-----|
-| 🚀 **Portfolio (Live)** | **[vinayak-portfolio.onrender.com](https://vinayak-portfolio.onrender.com/)** |
-| 🔌 **API Health** | **[vinayak-portfolio-api.onrender.com/api/health](https://vinayak-portfolio-api.onrender.com/api/health)** |
+| 🚀 **Portfolio (Live)** | **[vinayak-portfolio.onrender.com](https://vinayak-portfolio-application.onrender.com/)** |
+| 🔌 **API Health** | **[vinayak-portfolio-api.onrender.com/api/health](https://vinayak-portfolio-application.onrender.com/api/health)** |
 | 💻 Local Frontend | http://localhost:5173 |
 | 🔌 Local Backend | http://localhost:5000 |
 
@@ -543,7 +543,7 @@ Distributed under the **MIT License**. See [`LICENSE`](./LICENSE) for full detai
 
 [![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/vinushinde2525-sys)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/vinu-shinde-930507351/)
-[![Live Portfolio](https://img.shields.io/badge/Live_Portfolio-22C55E?style=for-the-badge&logo=render&logoColor=white)](https://vinayak-portfolio.onrender.com/)
+[![Live Portfolio](https://img.shields.io/badge/Live_Portfolio-22C55E?style=for-the-badge&logo=render&logoColor=white)](https://vinayak-portfolio-application.onrender.com/)
 
 </div>
 
