@@ -1,0 +1,327 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Barlow+Condensed:wght@700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Core cosmic palette */
+    --bg-void:        #020106;
+    --bg-deep:        #050210;
+    --bg-card:        rgba(255,255,255,0.03);
+    --bg-card-hover:  rgba(255,255,255,0.06);
+    --bg-glass:       rgba(15,8,3,0.7);
+
+    /* Orange fire accent system */
+    --fire:           #F4621F;
+    --fire-bright:    #FF7A35;
+    --fire-dim:       #C44D14;
+    --fire-glow:      rgba(244,98,31,0.4);
+    --fire-subtle:    rgba(244,98,31,0.08);
+    --nebula-amber:   #FF9A3C;
+
+    /* Text */
+    --text-primary:   #F8F4F0;
+    --text-secondary: #9A8070;
+    --text-muted:     #4A3528;
+
+    /* Borders */
+    --border:         rgba(244,98,31,0.12);
+    --border-hover:   rgba(244,98,31,0.35);
+    --border-glass:   rgba(255,255,255,0.06);
+
+    /* Glows */
+    --glow-fire:      0 0 40px rgba(244,98,31,0.35), 0 0 80px rgba(244,98,31,0.15);
+    --glow-soft:      0 0 20px rgba(244,98,31,0.2);
+    --glow-text:      0 0 30px rgba(244,98,31,0.6);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background: var(--bg-void);
+    overflow-x: hidden;
+  }
+
+  body {
+    background: var(--bg-void);
+    color: var(--text-primary);
+    font-family: 'Inter', system-ui, sans-serif;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    background: rgba(244,98,31,0.4);
+    color: #fff;
+  }
+
+  ::-webkit-scrollbar       { width: 4px; }
+  ::-webkit-scrollbar-track { background: var(--bg-void); }
+  ::-webkit-scrollbar-thumb {
+    background: linear-gradient(to bottom, var(--fire), var(--fire-dim));
+    border-radius: 4px;
+  }
+
+  h1,h2,h3,h4,h5,h6 {
+    font-family: 'Barlow Condensed', 'Inter', system-ui, sans-serif;
+    font-weight: 800;
+    color: var(--text-primary);
+    line-height: 1;
+    letter-spacing: -0.01em;
+  }
+
+  a { text-decoration: none; color: inherit; }
+  button { cursor: pointer; font-family: inherit; border: none; background: none; }
+  img { max-width: 100%; display: block; }
+}
+
+@layer components {
+  .container-custom {
+    width: 100%;
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+  @media(min-width:768px)  { .container-custom { padding: 0 2.5rem; } }
+  @media(min-width:1280px) { .container-custom { padding: 0 4rem; } }
+
+  .section-padding { padding: 6rem 0; }
+  @media(min-width:1024px) { .section-padding { padding: 8rem 0; } }
+
+  /* Cosmic glass card */
+  .cosmic-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 1.25rem;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    transition: all 0.4s cubic-bezier(0.16,1,0.3,1);
+  }
+  .cosmic-card:hover {
+    background: var(--bg-card-hover);
+    border-color: rgba(244,98,31,0.3);
+    box-shadow: var(--glow-soft), inset 0 1px 0 rgba(255,255,255,0.05);
+    transform: translateY(-4px);
+  }
+
+  /* Fire orange button */
+  .btn-fire {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.8rem 1.8rem;
+    background: var(--fire);
+    color: #fff;
+    border-radius: 100px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    letter-spacing: 0.01em;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    border: none;
+    position: relative;
+    overflow: hidden;
+  }
+  .btn-fire::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(255,255,255,0.15) 0%, transparent 60%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  .btn-fire:hover {
+    background: var(--fire-bright);
+    box-shadow: var(--glow-fire);
+    transform: translateY(-2px) scale(1.02);
+  }
+  .btn-fire:hover::before { opacity: 1; }
+
+  /* Ghost button */
+  .btn-ghost {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.8rem 1.8rem;
+    background: transparent;
+    color: #fff;
+    border-radius: 100px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    border: 1px solid rgba(255,255,255,0.2);
+  }
+  .btn-ghost:hover {
+    border-color: var(--fire);
+    background: rgba(244,98,31,0.08);
+    transform: translateY(-1px);
+  }
+
+  /* Eyebrow */
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--fire);
+    font-family: 'Inter', sans-serif;
+  }
+
+  /* Cosmic filter tab */
+  .filter-tab {
+    padding: 0.45rem 1.1rem;
+    border-radius: 100px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    border: 1px solid var(--border);
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: all 0.25s ease;
+    background: transparent;
+    font-family: 'Inter', sans-serif;
+  }
+  .filter-tab:hover  { border-color: var(--fire); color: #fff; }
+  .filter-tab.active {
+    background: var(--fire);
+    border-color: var(--fire);
+    color: #fff;
+    box-shadow: 0 0 16px rgba(244,98,31,0.4);
+  }
+
+  /* Skill progress bar */
+  .skill-track {
+    height: 5px;
+    background: rgba(255,255,255,0.05);
+    border-radius: 100px;
+    overflow: hidden;
+  }
+  .skill-fill {
+    height: 100%;
+    border-radius: 100px;
+    background: linear-gradient(90deg, var(--fire-dim), var(--fire), var(--fire-bright));
+    box-shadow: 0 0 10px rgba(244,98,31,0.5);
+    transition: width 1.2s cubic-bezier(0.16,1,0.3,1);
+  }
+
+  /* Tech badge */
+  .tech-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    padding: 0.3rem 0.7rem;
+    border-radius: 0.375rem;
+    font-size: 0.7rem;
+    font-weight: 600;
+    background: rgba(244,98,31,0.06);
+    border: 1px solid rgba(244,98,31,0.15);
+    color: var(--text-secondary);
+    white-space: nowrap;
+    font-family: 'Inter', sans-serif;
+  }
+
+  /* Social icon */
+  .social-btn {
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-secondary);
+    transition: all 0.25s ease;
+    cursor: pointer;
+    text-decoration: none;
+  }
+  .social-btn:hover {
+    background: var(--fire);
+    border-color: var(--fire);
+    color: #fff;
+    box-shadow: 0 0 16px rgba(244,98,31,0.4);
+    transform: translateY(-2px);
+  }
+
+  /* Gradient text */
+  .text-fire {
+    background: linear-gradient(90deg, var(--fire), var(--fire-bright), var(--nebula-amber));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Cosmic glow ring */
+  .glow-ring {
+    position: absolute;
+    border-radius: 50%;
+    border: 1px solid rgba(244,98,31,0.2);
+    animation: ring-pulse 3s ease-in-out infinite;
+  }
+
+  /* Skeleton */
+  .skeleton {
+    background: linear-gradient(90deg,
+      rgba(255,255,255,0.02) 0%,
+      rgba(255,255,255,0.06) 50%,
+      rgba(255,255,255,0.02) 100%
+    );
+    background-size: 200% 100%;
+    animation: shimmer 1.5s ease-in-out infinite;
+    border-radius: 0.75rem;
+  }
+
+  /* Shooting star */
+  .shooting-star {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: #fff;
+    border-radius: 50%;
+    box-shadow: 0 0 6px 2px rgba(244,98,31,0.6);
+  }
+}
+
+@keyframes shimmer {
+  0%   { background-position: -200% 0; }
+  100% { background-position:  200% 0; }
+}
+@keyframes float-y {
+  0%,100% { transform: translateY(0); }
+  50%      { transform: translateY(-14px); }
+}
+@keyframes float-slow {
+  0%,100% { transform: translateY(0) rotate(0deg); }
+  50%      { transform: translateY(-8px) rotate(2deg); }
+}
+@keyframes ring-pulse {
+  0%,100% { opacity: 0.3; transform: scale(1); }
+  50%      { opacity: 0.7; transform: scale(1.04); }
+}
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+@keyframes twinkle {
+  0%,100% { opacity: 0.3; }
+  50%      { opacity: 1; }
+}
+@keyframes shooting {
+  0%   { transform: translateX(-100px) translateY(0);   opacity: 1; }
+  100% { transform: translateX(300px)  translateY(200px); opacity: 0; }
+}
+@keyframes nebula-drift {
+  0%,100% { transform: translate(0,0) scale(1); }
+  33%      { transform: translate(20px,-15px) scale(1.02); }
+  66%      { transform: translate(-15px,10px) scale(0.98); }
+}
